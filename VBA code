@@ -1,0 +1,31 @@
+Sub GetFactors()
+'================ Inputs required
+    iDividend = 55   'number for which the prime factors are to be derived
+    iOutputCol = 4  'column where the output will be printed
+'=================================
+    iPrimeRow = 2
+    iOutputRow = 1
+
+    While iDividend > 1
+
+        ifactor = Cells(iPrimeRow, 1).Value
+        
+        If ifactor = "" Then   ' error message if input is too large
+            MsgBox ("We ran out of prime numbers, extend list in column A")
+        End If
+        
+        If iDividend Mod ifactor = 0 Then
+        
+            Cells(iOutputRow, iOutputCol).Value = ifactor
+            iDividend = iDividend / ifactor
+            iOutputRow = iOutputRow + 1
+       
+        Else
+   
+            iPrimeRow = iPrimeRow + 1
+    
+        End If
+
+    Wend
+
+End Sub
